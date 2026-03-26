@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strain Passport — Your Personal Cannabis Journal & Strain Tracker</title>
+  <meta name="description" content="Strain Passport is a free cannabis journal app. Log every strain you try, rate your experiences, track your consumption method, and build your personal weed diary. 8,971 strains in the database." />
+  <meta name="keywords" content="cannabis journal, weed tracker, strain diary, marijuana log, cannabis passport, strain tracker, weed journal, cannabis diary, marijuana tracker, strain log" />
+  <meta property="og:title" content="Strain Passport — Your Personal Cannabis Journal" />
+  <meta property="og:description" content="Log every strain you try. Rate your experiences. Build your personal cannabis passport. Free, no account needed." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomsadira777.github.io/strain-passport/landing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Strain Passport — Your Personal Cannabis Journal" />
+  <meta name="twitter:description" content="Log every strain you try. Rate your experiences. Build your personal cannabis passport. Free, no account needed." />
+  <link rel="canonical" href="https://tomsadira777.github.io/strain-passport/landing" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #017c6b;
+      --green-light: rgba(1,124,107,0.08);
+      --green-mid: rgba(1,124,107,0.15);
+      --text: #111;
+      --muted: #555;
+      --border: #e7e7e7;
+      --bg: #fff;
+      --bg2: #f7f9f8;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Public Sans', sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; margin: 0 auto; width: 100%;
+    }
+    nav { max-width: unset; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo span { font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+    .nav-cta { background: var(--green); color: #fff; border: none; border-radius: 24px; padding: 9px 20px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: inherit; }
+    .nav-cta:hover { background: #015a4e; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, #f0faf7 0%, #fff 60%);
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block; background: var(--green-light); color: var(--green);
+      border: 1px solid rgba(1,124,107,0.2); border-radius: 20px;
+      padding: 5px 14px; font-size: 13px; font-weight: 600; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px); font-weight: 800; line-height: 1.1;
+      letter-spacing: -1.5px; color: var(--text); max-width: 800px; margin: 0 auto 20px;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted); max-width: 520px;
+      margin: 0 auto 36px; line-height: 1.6;
+    }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .btn-primary { background: var(--green); color: #fff; border: none; border-radius: 28px; padding: 14px 32px; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: inherit; transition: background 0.15s; }
+    .btn-primary:hover { background: #015a4e; }
+    .btn-secondary { background: #fff; color: var(--text); border: 1.5px solid var(--border); border-radius: 28px; padding: 14px 32px; font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: inherit; transition: border-color 0.15s; }
+    .btn-secondary:hover { border-color: #aaa; }
+    .hero-note { font-size: 13px; color: #999; }
+
+    /* STATS BAR */
+    .stats {
+      background: var(--green); color: #fff;
+      padding: 20px 24px;
+      display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; }
+    .stat-label { font-size: 12px; opacity: 0.8; margin-top: 2px; }
+
+    /* SCREENSHOTS */
+    .screenshots {
+      padding: 80px 24px;
+      background: var(--bg2);
+      text-align: center;
+    }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -0.8px; margin-bottom: 16px; }
+    .section-sub { font-size: 16px; color: var(--muted); max-width: 480px; margin: 0 auto 48px; line-height: 1.6; }
+    .phone-row {
+      display: flex; gap: 24px; justify-content: center; align-items: flex-start; flex-wrap: wrap;
+    }
+    .phone-frame {
+      background: #111; border-radius: 40px; padding: 10px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      width: 220px; flex-shrink: 0;
+    }
+    .phone-frame img {
+      width: 100%; border-radius: 32px; display: block;
+    }
+    .phone-caption { font-size: 13px; color: var(--muted); margin-top: 14px; font-weight: 500; }
+
+    /* FEATURES */
+    .features { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .feature-card {
+      background: var(--bg); border: 1.5px solid var(--border); border-radius: 16px;
+      padding: 28px 24px;
+    }
+    .feature-icon { font-size: 28px; margin-bottom: 14px; }
+    .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feature-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .feature-card.pro { border-color: rgba(1,124,107,0.3); background: var(--green-light); }
+    .pro-badge { display: inline-block; background: var(--green); color: #fff; border-radius: 10px; padding: 2px 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; margin-left: 8px; vertical-align: middle; }
+
+    /* HOW IT WORKS */
+    .how { padding: 80px 24px; background: var(--bg2); text-align: center; }
+    .steps { display: flex; gap: 0; justify-content: center; flex-wrap: wrap; max-width: 800px; margin: 48px auto 0; }
+    .step { flex: 1; min-width: 180px; padding: 0 20px; position: relative; }
+    .step:not(:last-child)::after {
+      content: '→'; position: absolute; right: -8px; top: 20px;
+      font-size: 20px; color: var(--border);
+    }
+    .step-num { width: 44px; height: 44px; background: var(--green); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; margin: 0 auto 14px; }
+    .step-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* TESTIMONIAL */
+    .testimonial { padding: 80px 24px; max-width: 700px; margin: 0 auto; text-align: center; }
+    .quote { font-size: clamp(20px, 3vw, 28px); font-weight: 600; line-height: 1.4; letter-spacing: -0.3px; font-style: italic; color: var(--text); margin-bottom: 20px; }
+    .quote-attr { font-size: 14px; color: var(--muted); }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      background: var(--green); color: #fff;
+      padding: 80px 24px; text-align: center;
+    }
+    .cta-bottom h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -0.8px; margin-bottom: 16px; }
+    .cta-bottom p { font-size: 17px; opacity: 0.85; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-white { background: #fff; color: var(--green); border: none; border-radius: 28px; padding: 14px 32px; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; font-family: inherit; transition: opacity 0.15s; }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* DONATION */
+    .donation { padding: 48px 24px; text-align: center; border-top: 1px solid var(--border); }
+    .donation p { font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+    .btn-donate { background: #fff; color: var(--text); border: 1.5px solid var(--border); border-radius: 24px; padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; font-family: inherit; }
+
+    /* FOOTER */
+    footer { padding: 32px 24px; text-align: center; border-top: 1px solid var(--border); }
+    footer p { font-size: 13px; color: #999; }
+    footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stats { gap: 24px; }
+      .step:not(:last-child)::after { display: none; }
+      .phone-frame { width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="50" fill="#017c6b"/>
+        <text x="50" y="68" text-anchor="middle" font-size="52" fill="white">🌿</text>
+      </svg>
+      <span>Strain Passport</span>
+    </a>
+    <a href="https://tomsadira777.github.io/strain-passport/" class="nav-cta">Launch App →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🌿 Free · No account required</div>
+  <h1>Your personal<br /><span>cannabis journal.</span></h1>
+  <p>Log every strain you try, rate your experience, and build a passport of your cannabis journey — all from your phone.</p>
+  <div class="hero-ctas">
+    <a href="https://tomsadira777.github.io/strain-passport/" class="btn-primary">Start your passport →</a>
+    <a href="#features" class="btn-secondary">See how it works</a>
+  </div>
+  <p class="hero-note">Free forever. Works on any phone. No download required.</p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8,971</div>
+    <div class="stat-label">Strains in the database</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Free to use</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Accounts or signups</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Entries you can log</div>
+  </div>
+</div>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots" id="app">
+  <div class="section-label">See it in action</div>
+  <h2 class="section-title">Built for cannabis enthusiasts</h2>
+  <p class="section-sub">Clean, fast, and dead simple. Log a new strain in under 10 seconds.</p>
+  <div class="phone-row">
+    <div>
+      <div class="phone-frame">
+        <img src="screenshot1.png" alt="Strain Passport home screen showing logged strains" />
+      </div>
+      <p class="phone-caption">Your strain log</p>
+    </div>
+    <div>
+      <div class="phone-frame">
+        <img src="screenshot2.png" alt="Strain Passport entry detail view" />
+      </div>
+      <p class="phone-caption">Entry details</p>
+    </div>
+    <div>
+      <div class="phone-frame">
+        <img src="screenshot3.png" alt="Strain Passport add entry with autocomplete" />
+      </div>
+      <p class="phone-caption">Smart autocomplete</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div style="text-align:center">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need to track your strains</h2>
+    <p class="section-sub">The free tier has everything most people need. Pro features coming soon for power users.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📖</div>
+      <div class="feature-title">Strain journal</div>
+      <div class="feature-desc">Log every cannabis strain you try with a date, rating, consumption method, and personal notes.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">Smart autocomplete</div>
+      <div class="feature-desc">Fuzzy search across 8,971 strains as you type. Never misspell a strain name again.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-title">Leaf ratings</div>
+      <div class="feature-desc">Rate each strain on a 5-leaf scale and sort your passport by your highest rated experiences.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔗</div>
+      <div class="feature-title">Strain links</div>
+      <div class="feature-desc">Tap any logged strain to find more info, read reviews, or find it at a dispensary near you.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div class="feature-title">Install on your phone</div>
+      <div class="feature-desc">Add to your home screen for a native app feel. Works offline. No App Store required.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title">Private by default</div>
+      <div class="feature-desc">Your data lives on your device only. No account, no cloud, no tracking. Just your journal.</div>
+    </div>
+    <div class="feature-card pro">
+      <div class="feature-icon">📷</div>
+      <div class="feature-title">Photo entries <span class="pro-badge">PRO</span></div>
+      <div class="feature-desc">Attach photos to your strain entries. Coming soon to the Pro tier.</div>
+    </div>
+    <div class="feature-card pro">
+      <div class="feature-icon">🗓️</div>
+      <div class="feature-title">Session tracking <span class="pro-badge">PRO</span></div>
+      <div class="feature-desc">Log multiple sessions per strain. Track how a strain hits you differently over time.</div>
+    </div>
+    <div class="feature-card pro">
+      <div class="feature-icon">🔗</div>
+      <div class="feature-title">Social sharing <span class="pro-badge">PRO</span></div>
+      <div class="feature-desc">Share your strain passport or individual entries with friends. Coming soon.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="section-label">How it works</div>
+  <h2 class="section-title">Log a strain in 3 steps</h2>
+  <p class="section-sub">No tutorial needed. It just works.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Search your strain</div>
+      <div class="step-desc">Type a strain name and pick from 8,971 options with smart fuzzy search.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Rate & note it</div>
+      <div class="step-desc">Give it a leaf rating, pick your method, and jot down how it made you feel.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Build your passport</div>
+      <div class="step-desc">Your journal grows with every entry. Search, sort, and revisit anytime.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="testimonial">
+  <p class="quote">"OUT OF THIS WORLD! THIS STRAIN TOOK ME TO A GALAXY FAR FAR AWAY AND I STILL HAVE NEVER RETURNED."</p>
+  <p class="quote-attr">— A real entry from a real Strain Passport user 🌿</p>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom">
+  <h2>Ready to start your passport?</h2>
+  <p>Free forever. No account. No download. Just open it on your phone and start logging.</p>
+  <a href="https://tomsadira777.github.io/strain-passport/" class="btn-white">Launch Strain Passport →</a>
+</section>
+
+<!-- DONATION PLACEHOLDER -->
+<section class="donation">
+  <p>Strain Passport is free and always will be. If it's brought you joy, consider buying me a coffee ☕</p>
+  <a href="DONATION_LINK_PLACEHOLDER" class="btn-donate">❤️ Support the app</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Strain Passport · <a href="https://tomsadira777.github.io/strain-passport/">Launch app</a> · Built with 🌿 for cannabis enthusiasts everywhere</p>
+</footer>
+
+</body>
+</html>
