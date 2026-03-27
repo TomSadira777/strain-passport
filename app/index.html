@@ -13,9 +13,19 @@
     <meta name="apple-mobile-web-app-title" content="Strain Passport" />
     <meta property="og:title" content="Strain Passport" />
     <meta property="og:description" content="Your personal cannabis strain journal." />
-    <script type="module" crossorigin src="/app/assets/index-B-0EwYkN.js"></script>
-    <link rel="stylesheet" crossorigin href="/app/assets/index-DEziMLVa.css">
-  <link rel="manifest" href="/app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/app/registerSW.js"></script></head>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FLKSWBQVR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9FLKSWBQVR');
+    window.addEventListener('beforeinstallprompt', () => gtag('event', 'pwa_install_prompt'));
+    window.addEventListener('appinstalled', () => gtag('event', 'pwa_installed'));
+  </script>
+  <script type="module" crossorigin src="/app/assets/index-B-0EwYkN.js"></script>
+  <link rel="stylesheet" crossorigin href="/app/assets/index-DEziMLVa.css">
+<link rel="manifest" href="/app/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/app/registerSW.js"></script></head>
   <body>
     <div id="root"></div>
   </body>
